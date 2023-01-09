@@ -1,0 +1,74 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "demo1",
+    "version": "v1",
+    "description": "This is test api developed by xxx",
+    "contact": {
+      "email": "susinda@gmail.com",
+      "name": "Susinda"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.sperera.online/invoice/"
+    }
+  ],
+  "paths": {
+    "/posts": {
+      "get": {
+        "parameters": [],
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        },
+        "x-auth-type": "Application & Application User",
+        "x-throttling-tier": "Unlimited",
+        "tags": [
+          "invoices"
+        ]
+      }
+    },
+    "/test": {
+      "summary": "this is a rest path",
+      "description": "return test posts",
+      "get": {
+        "summary": "get tests",
+        "description": "retuns specfic",
+        "operationId": "testgetid",
+        "responses": {
+          "default": {
+            "description": "Default error sample response",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "TestResponse": {
+                    "value": "{\"name\" : \"aaa\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "invoices"
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    }
+  }
+}
